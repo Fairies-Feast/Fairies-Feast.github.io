@@ -109,3 +109,23 @@
 
         </script>
 <h1 style="color:purple;text-align:center;font-family:tahoma">Chat</h1>
+<form>
+<textarea></textarea>
+ <input type="submit">
+ <br/>
+</form>
+ <div id='val'></div>
+
+ <script>
+ //get value in console log
+var a = document.getElementsByTagName('textarea')[0];
+document.getElementsByTagName('input')[0].addEventListener('click',function(e){
+e.preventDefault()
+console.log(a.value)
+})
+//or get value in specific div
+document.getElementsByTagName('input')[0].addEventListener('click',function(e){
+e.preventDefault()
+document.getElementById('val').innerHTML = a.value;
+})
+</script>
