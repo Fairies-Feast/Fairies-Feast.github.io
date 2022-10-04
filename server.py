@@ -10,3 +10,9 @@ def send(message):
     current = pickle.load(open("history.p", "wb"))
     current.append(message)
     pickle.dump(current, open("history.p", "wb"))
+
+
+def main(mailed):
+    send(mailed)
+    rain = load()
+    return rain
