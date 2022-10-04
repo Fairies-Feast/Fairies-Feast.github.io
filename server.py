@@ -17,6 +17,3 @@ def main(mailed):
     send(mailed)
     rain = load()
     return rain
-
-
-main('hi cutie pie')
