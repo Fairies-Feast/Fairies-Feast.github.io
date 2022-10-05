@@ -1,56 +1,55 @@
-<title>Amsila Chat</title>
-<h1 style="color:FCAF0B;text-align:center;font-family:tahoma">Amsila Chat</h1>
+<title>Amsilla Chat</title>
 <button onclick = "colorblue()">
 
-            Blue
+    Blue
 
-        </button>
-
-
-
-        <button onclick = "colorred()">
-
-            Red
-
-        </button>
+</button>
 
 
 
-        <button onclick = "colorgreen()">
+<button onclick = "colorred()">
 
-            Green
+    Red
 
-        </button>
-
-
-
-        <button onclick = "colorwhite()">
-
-            Light Mode
-
-        </button>
+</button>
 
 
 
-        <button onclick = "colorblack()">
+<button onclick = "colorgreen()">
 
-            Dark Mode
+    Green
 
-        </button>
-
-
-
-        <button onclick = "Custom()">
-
-            Custom
-
-        </button>
+</button>
 
 
 
+<button onclick = "colorwhite()">
+
+    Light Mode
+
+</button>
 
 
-        <script>
+
+<button onclick = "colorblack()">
+
+    Dark Mode
+
+</button>
+
+
+
+<button onclick = "colororange()">
+
+    Orange
+
+</button>
+
+
+
+
+
+<script>
 
             function changeColor(color) {
 
@@ -100,23 +99,24 @@
 
 
 
-            function custom() {
+            function colororange() {
 
-
+                document.body.style.background = 'orange'
 
             }
 
 
 
         </script>
+<h1 style="color:orange;text-align:center;font-family:arial">Amsila Chat</h1>
 <form>
-    <textarea>Keep notes...</textarea>
- <input type="submit">
- <br/>
+    <textarea></textarea>
+    <input type="submit">
+    <br/>
 </form>
- <div id='val'></div>
+<div id='val'></div>
 
- <script>
+<script>
  //get value in console log
 var a = document.getElementsByTagName('textarea')[0];
 document.getElementsByTagName('input')[0].addEventListener('click',function(e){
@@ -129,20 +129,16 @@ e.preventDefault()
 document.getElementById('val').innerHTML = a.value;
 })
 </script>
-Message:<input type="text" id="doj" name="daysofjourney">
-<input type="button" value="submit" onclick="dayscounter()" placeholder="Your message">
+<footer style="color:FCAF0B;text-align:center;font-family:tahoma">Copyright(C)
+    Faires Feast</footer>
+Message: <input type="text" id="doj">
+<input type="button" value="submit" onclick="messagereadytosend()">
 
 <script language="javascript" type="text/javascript">
-var travel = document.getElementById("doj").value;
+var message = document.getElementById("doj").value;
 
-function dayscounter() {
-    var travel = document.getElementById("doj").value;
-    var days;
-    for(days=travel;days<=travel;days++)
-    {
-        
-    }g
+function messagereadytosend() {
+    var message = document.getElementById("doj").value;
 }
-</script>
 
-<footer style="color:FCAF0B;text-align:center;font-family:tahoma">Copyright(C) Faires Feast</footer>
+</script>
