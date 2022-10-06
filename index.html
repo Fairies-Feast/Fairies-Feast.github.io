@@ -128,6 +128,8 @@ document.getElementsByTagName('input')[0].addEventListener('click',function(e){
 e.preventDefault()
 document.getElementById('val').innerHTML = a.value;
 })
+
+
 </script>
 <footer style="color:FCAF0B;text-align:center;font-family:tahoma">Copyright(C)
     Faires Feast</footer>
@@ -140,5 +142,22 @@ var message = document.getElementById("doj").value;
 function messagereadytosend() {
     var message = document.getElementById("doj").value;
 }
+
+</script>
+
+<script>
+
+// Create WebSocket connection.
+const socket3 = new WebSocket('wss://amsilachat:8080');
+
+// Connection opened
+socket.addEventListener('open', (event) => {
+    socket.send(message);
+});
+
+// Listen for messages
+socket.addEventListener('message', (event) => {
+    console.log('Message from server ', event.data);
+});
 
 </script>
