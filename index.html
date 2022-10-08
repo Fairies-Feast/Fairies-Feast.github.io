@@ -143,25 +143,23 @@ Message: <input type="text" id="doj">
 <script language="javascript" type="text/javascript">
 var message = document.getElementById("doj").value;
 
+</script>
+
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+<script>
+
 function messagereadytosend() {
     var message = document.getElementById("doj").value;
+    const soc= JSON.stringify(message);
+    $.ajax({
+      url:"/test",
+      type:"POST",
+      contentType: "application/json",
+      data: JSON.stringify(soc)});
+
 }
 
 </script>
 
-<script>
-
-// Create WebSocket connection.
-const socket3 = new WebSocket('wss://amsilachat:8080');
-
-// Connection opened
-socket.addEventListener('open', (event) => {
-    socket.send(message);
-});
-
-// Listen for messages
-socket.addEventListener('message', (event) => {
-    console.log('Message from server ', event.data);
-});
-
-</script>
