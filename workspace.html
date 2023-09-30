@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ByteInt - Workspace</title>
+	<link href="workspace.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<script>
+		function param(type) {
+			const urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get(type);
+		}
+		//Function for live Rendering
+		function update(i) {
+				let iframe = document.getElementById('viewer').contentWindow.document;
+				iframe.open();
+				iframe.write(i);
+				iframe.close();
+			}
+
+	</script>
+	<div class='top'>
+		<button class='home' onclick='window.location.replace("/")'>ByteInt</button>
+		<button>
+			<script>document.write(param('project'))</script>
+		</button>
+		<span class='otherside'>
+			<button class='run' onclick='update(document.getElementById("coderun").value)'>Run</button>
+			<button onclick="localStorage.setItem(param('project'), JSON.stringify({'index.html':document.getElementById('coderun').value}));">Save</button>
+		</span>
+	</div>
+	<textarea style="height:90vh;width:45%" id='coderun'></textarea>
+	<iframe id='viewer' style="height:90vh;width:50%;float:right;border:none;background:white;" src='about:blank'>Your browser does not support iframes</iframe>
+	<script>
+		const storedData = localStorage.getItem(param('project'));
+    const parsedData = JSON.parse(storedData);
+    document.getElementById('coderun').value = parsedData['index.html'];
+	</script>
+</body>
+
+</html>
