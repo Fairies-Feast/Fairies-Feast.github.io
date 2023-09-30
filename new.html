@@ -23,8 +23,6 @@
 		const programname = param('name');
 		const projectData = {'index.html': '<p>Hello, world!</p>'};
     localStorage.setItem(programname, JSON.stringify(projectData));
-
-		localStorage.setItem(programname + '_type', programlang);
 		window.location.replace('workspace.html?project='+programname)
 	</script>
 	<script src="script.js"></script>
