@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ByteInt</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<nav id='mynav' class='nav-transparent'>
+
+		<span><a href="index.html">ByteInt</a></span>
+		<span style="color:deepskyblue;">Workspace</span>
+	</nav><br><br>
+	<h2>Your Projects</h2>
+	<div id='projects'>Loading your projects... Please make sure your browser supports localstorage.</div>
+	<h2>Create</h2>
+	<button>Python (Shieldcontainers)</button>
+	<script>
+		function doit() {
+			var name=prompt("What do you want the name to be?", "Enter name here")
+			document.body.innerHTML = "<a href='new.html?type=html&name=" + name + "'>Launch project</a>"
+		}
+		if (!localStorage) {
+			document.getElementById("projects").innerText = "Your browser does not support localStorage."
+		} else if (localStorage.length == 0) {
+			document.getElementById('projects').innerText = "You have no projects!"
+		} else {
+			const allprojects = []
+			for (var i in localStorage) {
+				allprojects.push(i)
+			}
+
+			var abc = "<ul>"
+			const mybadlist = ["length",'clear','getItem','key','removeItem','setItem']
+			allprojects.forEach(function(e){
+				if (mybadlist.includes(e)) {console.log(e)} else {
+					abc+=`<li onclick='window.location.replace("workspace.html?project="+this.innerText)'>`+e+"</li>"
+				}
+			})
+			document.getElementById('projects').innerHTML = abc + "</ul>"
+		}
+	</script>
+	<button onclick='doit()'>HTML</button>
+	<script src="script.js"></script>
+</body>
+
+</html>

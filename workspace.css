@@ -1,0 +1,25 @@
+body {
+	background:#222;
+}
+button {
+	padding:10px 30px;
+	border:transparent dotted 2px;
+	cursor:pointer;
+	transition: 0.3s;
+}
+button:hover {
+	background:black;
+	color:white;
+}
+button:focus {
+	border:grey dotted 2px;
+}
+.home {
+	background:deepskyblue;
+}
+.run {
+	background:lightgreen;
+}
+.otherside {
+	float:right;
+}

@@ -1,0 +1,70 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	background:#333;
+	color:white;
+}
+.section {
+	height:100vh;
+}
+accent {
+	color:deepskyblue;
+}
+nav {
+	width:100%;
+	position:fixed;
+	padding:10px;
+	left:0;
+	top:0;
+	transition:0.3s;
+	display:flex;
+}
+nav span {
+	flex:1;
+}
+.nav-transparent {
+	background:transparent;
+}
+.nav-colored {
+	background:black;
+}
+button {
+	padding:10px 20px;
+	background:#445;
+	border:none;
+	transition:0.3s;
+	cursor:pointer;
+	color:white;
+	border-radius:10px;
+}
+button:hover {
+	background:#447;
+}
+button:active {
+	background:#449;
+}
+.console {
+	background:black;
+	color:white;
+	font-family:'Courier new', monospace;
+}
+orange {
+	color:orange;
+}
+green {
+	color:green;
+}
+
+fieldset {
+	background:#333;
+	color:red;
+	border:white 2px solid;
+}
+legend {
+	background:white;
+	color:black;
+}
+a {
+	color:white;
+	text-decoration: none;
+}
