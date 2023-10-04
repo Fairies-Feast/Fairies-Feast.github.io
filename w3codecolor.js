@@ -1,5 +1,3 @@
-w3CodeColor(document.getElementById("myDiv"));
-
 function w3CodeColor(elmnt, mode) {
   var lang = (mode || "html");
   var elmntObj = (document.getElementById(elmnt) || elmnt);

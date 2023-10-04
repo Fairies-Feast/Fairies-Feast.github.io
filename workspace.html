@@ -33,13 +33,20 @@
 			<button onclick="localStorage.setItem(param('project'), JSON.stringify({'index.html':document.getElementById('coderun').value}));">Save</button>
 		</span>
 	</div>
-	<textarea style="height:90vh;width:45%" id='coderun'></textarea>
+	<textarea style="height:90vh;width:45%" id='coderun' autofocus oninput="addover(this)"></textarea>
+	<div id="overlay"></div>
+
 	<iframe id='viewer' style="height:90vh;width:50%;float:right;border:none;background:white;" src='about:blank'>Your browser does not support iframes</iframe>
 	<script>
+	function addover(elmnt) {
+	document.getElementById("overlay").innerText = elmnt.value
+	w3CodeColor(document.getElementById('overlay'))
+	}
 		const storedData = localStorage.getItem(param('project'));
     const parsedData = JSON.parse(storedData);
     document.getElementById('coderun').value = parsedData['index.html'];
 	</script>
+	<script src="w3codecolor.js"></script>
 </body>
 
 </html>
