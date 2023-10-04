@@ -33,7 +33,7 @@
 			<button onclick="localStorage.setItem(param('project'), JSON.stringify({'index.html':document.getElementById('coderun').value}));">Save</button>
 		</span>
 	</div>
-	<textarea style="height:90vh;width:45%" id='coderun' autofocus oninput="addover(this)" hidden></textarea>
+	<textarea style="height:10px;width:10px;opacity:0.2;" id='coderun' autofocus oninput="addover(this)"></textarea>
 	<div id="overlay"></div>
 
 	<iframe id='viewer' style="height:90vh;width:50%;float:right;border:none;background:white;" src='about:blank'>Your browser does not support iframes</iframe>
