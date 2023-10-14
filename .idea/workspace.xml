@@ -51,6 +51,11 @@
       <recent name="C:\Users\willc\Documents\GitHub\Fairies-Feast.github.io\templates" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="?" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Fairies-Feast.github.io" />
