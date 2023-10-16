@@ -39,13 +39,13 @@
 	<iframe id='viewer' style="height:90vh;width:50%;float:right;border:none;background:white;" src='about:blank'>Your browser does not support iframes</iframe>
 	<script>
 	function addover(elmnt) {
-	document.getElementById("overlay").innerText = elmnt.value
+	document.getElementById("overlay").innerText = elmnt.value.replace(" ","&nbsp;")
 	w3CodeColor(document.getElementById('overlay'))
 	}
 		const storedData = localStorage.getItem(param('project'));
     const parsedData = JSON.parse(storedData);
     document.getElementById('coderun').value = parsedData['index.html'];
-		document.body.onclick = function(){document.getElementById('coderun').focus()}
+		document.addEventListener('click',function(){document.getElementById('coderun').focus()})
 	</script>
 	<script src="w3codecolor.js"></script>
 </body>
