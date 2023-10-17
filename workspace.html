@@ -39,7 +39,7 @@
 	<iframe id='viewer' style="height:90vh;width:50%;float:right;border:none;background:white;" src='about:blank'>Your browser does not support iframes</iframe>
 	<script>
 	function addover(elmnt) {
-	document.getElementById("overlay").innerHTML = elmnt.value.replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+	document.getElementById("overlay").innerHTML = elmnt.value.replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\\n","<br>").replaceAll("\n","<br>")
 	w3CodeColor(document.getElementById('overlay'))
 
 	}
