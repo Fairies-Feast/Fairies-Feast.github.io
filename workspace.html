@@ -38,12 +38,7 @@
 
 	<iframe id='viewer' style="height:90vh;width:50%;float:right;border:none;background:white;" src='about:blank'>Your browser does not support iframes</iframe>
 	<script>
-	function setCharAt(str,index,chr) {
-    	if(index > str.length-1) return str;
-    	return str.substring(0,index) + chr + str.substring(index+1);
-	}
 	function addover(elmnt) {
-	var sst = elmnt.selectionStart
 	document.getElementById("overlay").innerHTML = elmnt.value.replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
 	w3CodeColor(document.getElementById('overlay'))
 
