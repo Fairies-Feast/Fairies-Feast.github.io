@@ -44,7 +44,7 @@
 	}
 	function addover(elmnt) {
 	var sst = elmnt.selectionStart
-	var hm =elmnt.value.replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replace("\n","<br>")
+	var hm =elmnt.value.replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replace("\\n","\n")
 	document.getElementById("overlay").innerHTML = hm//setCharAt(hm,sst,"|")
 	w3CodeColor(document.getElementById('overlay'))
 
