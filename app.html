@@ -21,7 +21,11 @@
 	<script>
 		function doit() {
 			var name=prompt("What do you want the name to be?", "Enter name here")
-			document.body.innerHTML = "<a href='new.html?type=html&name=" + name + "'>Launch project</a>"
+			if (name!="") {
+				document.body.innerHTML = "<a href='new.html?type=html&name=" + name + "'>Launch project</a>"
+			} else {
+				alert("Name cannot be empty!")
+			}
 		}
 		if (!localStorage) {
 			document.getElementById("projects").innerText = "Your browser does not support localStorage."
