@@ -21,7 +21,7 @@
 	<script>
 		function doit() {
 			var name=prompt("What do you want the name to be?", "Enter name here")
-			if (name!="") {
+			if (name!=""||name!=null) {
 				document.body.innerHTML = "<a href='new.html?type=html&name=" + name + "'>Launch project</a>"
 			} else {
 				alert("Name cannot be empty!")
