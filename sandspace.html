@@ -117,7 +117,7 @@
         let pyodide = await loadPyodide();
         await pyodide.loadPackage("micropip")
         const micropip = pyodide.pyimport("micropip")
-        prompt("Which python packages do you want to install? seperate them with a space").split(" ").forEach(function(e) {await micropip.install(e)}
+        prompt("Which python packages do you want to install? seperate them with a space").split(" ").forEach(async function(e) {await micropip.install(e)}
         pyodide.runPython(toRun)
 	    } catch(err) {console.log(err)}
     }
