@@ -6,6 +6,7 @@ body {
 }
 .section {
 	height:100vh;
+	overflow:none;
 }
 accent {
 	color:deepskyblue;
