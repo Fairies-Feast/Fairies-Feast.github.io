@@ -111,6 +111,7 @@
       highlightSyntax()
     }
     async function runcontents() {
+	    try {
         const toRun = document.getElementsByClassName("textarea")[0].value;
       document.getElementsByClassName("textarea")[0].value += "\n# ByteInt SandSpace Output (Powered by Pyodide)\n"
         let pyodide = await loadPyodide();
@@ -120,7 +121,7 @@
           "requests"
         )*/
         pyodide.runPython(toRun)
-      
+	    } catch(err) {console.log(err)}
     }
   </script>
 </body>
