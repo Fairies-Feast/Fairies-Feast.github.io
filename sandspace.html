@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  .syntax-highlight {
+    width: 80%;
+    max-width: 800px;
+		padding:0px;
+		font-size: 20px;
+    overflow:auto;
+  }
+
+  .textarea-container {
+    position: relative;
+  }
+
+  .textarea {
+		font-size:20px;
+    width: 100%;
+    height: 300px;
+    resize: none;
+    border:none;
+    font-family: monospace;
+		color: transparent;
+		caret-color: grey;
+		outline:none;
+		padding:0;
+		background:black;
+  }
+	::selection {
+		background:white;
+	}
+
+  .highlight-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    white-space: pre;
+		color:white;
+		font-family: monospace;
+  }
+
+  .keyword {
+    color: orange;
+  }
+
+  .comment {
+    color: lightgreen !important;
+  }
+	.clue {
+		color:gold;
+	}
+
+  /* Add more CSS rules for different syntax elements */
+
+</style>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body>
+  <div class="syntax-highlight">
+    <div class="textarea-container">
+      <textarea class="textarea" id="code" spellcheck="false"></textarea>
+      <div class="highlight-layer" id="highlight-layer"></div>
+    </div>
+  </div> <button onclick="runcontents()">Run!</button>
+  <a href="index.html" style="position: fixed;top:0;left:0;">&leftarrow; Go home</a>
+
+  <script>
+    const codeTextarea = document.getElementById('code');
+    const highlightLayer = document.getElementById('highlight-layer');
+
+    codeTextarea.addEventListener('input', highlightSyntax);
+
+		function gc(cls,cd) {
+			return "<span class='" + cls + "'>"+cd+"</span>"
+		}
+    function highlightSyntax() {
+      const code = codeTextarea.value.replaceAll("<","&lt;").replaceAll('>',"&gt;");
+      const highlightedCode = code
+        .replace(/(\/\/.*|\/\*[\s\S]*?\*\/|(["'`])(\\?.)*?\2)/g, (match, comment, quote) => {
+          if (comment) {
+            return `<span class="comment">${match}</span>`;
+          }
+          return `<span class="string">${match}</span>`;
+        })
+        .replace(/\b(def|return|if|else|from|import|lambda|quit|exit|open|with|for|while|True|False|pass|continue|is|as|range|print|input|elif|and|in)\b/g, '<span class="keyword">$1</span>');
+
+      highlightLayer.innerHTML = highlightedCode.replaceAll('==', gc("clue",'==')).replaceAll(':', gc("clue",':')).replaceAll('(', gc("clue",'(')).replaceAll(')', gc("clue",')')).replaceAll('.',"<span class='clue'>.</span>").replaceAll('[',gc('clue', '[')).replaceAll(']',gc('clue', ']')).replaceAll("@",gc('clue',"@"));
+    } // do nums
+
+    // Initial syntax highlighting
+    highlightSyntax();
+    console.log = function(e) { 
+      document.getElementsByClassName("textarea")[0].value += e + "\n";
+      highlightSyntax()
+    }
+    async function runcontents() {
+        const toRun = document.getElementsByClassName("textarea")[0].value;
+      document.getElementsByClassName("textarea")[0].value += "\n# ByteInt SandSpace Output (Powered by Pyodide)\n"
+        let pyodide = await loadPyodide();
+        await pyodide.loadPackage("micropip")
+        const micropip = pyodide.pyimport("micropip")
+        /*await micropip.install(
+          "requests"
+        )*/
+        pyodide.runPython(toRun)
+      
+    }
+  </script>
+</body>
+</html>
