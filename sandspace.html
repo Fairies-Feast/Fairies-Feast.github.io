@@ -79,6 +79,7 @@
       <div class="highlight-layer" id="highlight-layer"></div>
     </div>
   </div> <button onclick="runcontents()">Run!</button>
+	<input id="d" type="text" placeholder="Packages to install">
   <a href="index.html" style="position: fixed;top:0;left:0;">&leftarrow; Go home</a>
 
   <script>
@@ -117,7 +118,8 @@
         let pyodide = await loadPyodide();
         await pyodide.loadPackage("micropip")
         const micropip = pyodide.pyimport("micropip")
-        prompt("Which python packages do you want to install? seperate them with a space").split(" ").forEach(async function(e) {await micropip.install(e)})
+	var stuff = document.getElementById("d").value;
+	if (stuff != "") {stuff.split(" ").forEach(async function(e) {await micropip.install(e)})}
         pyodide.runPython(toRun)
 	    } catch(err) {console.log(err)}
     }
