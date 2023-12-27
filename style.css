@@ -70,7 +70,7 @@ a {
 /*Shiny Buttons*/
 .shiny {
   position: relative;
-  overflow: auto;
+  overflow: none;
 }
 .shiny:before {
   content: "";
